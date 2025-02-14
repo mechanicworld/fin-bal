@@ -1,8 +1,12 @@
 <template>
-  <div>
-    <div class="container-fluid">
-      <AppSidebar />
-      <router-view></router-view>
+  <div class="h-screen w-screen px-4 py-16">
+    <div class="flex ">
+      <div class="">
+        <AppSidebar />
+      </div>
+      <div class="flex-1">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
