@@ -1,5 +1,5 @@
 <template>
-  <BaseModal v-model="showAddTransactionModal" title="Add New Transaction">
+  <BaseModal v-model="isOpen" ref="modalRef" title="Add New Transaction">
     <div class="flex flex-col gap-4">
       <BaseInput v-model="formInputs.description" label="Description" />
       <div class="flex gap-4">
@@ -32,6 +32,7 @@
 import BaseModal from '@/components/ui/BaseModal.vue'
 import BaseInput from '@/components/ui/BaseInput.vue'
 import BaseSelect from '@/components/ui/BaseSelect.vue'
+import BaseDatePicker from './ui/BaseDatePicker.vue'
 import BaseButton from '@/components/ui/BaseButton.vue'
 import {
   type NewTransactionValues,
@@ -39,8 +40,9 @@ import {
   SelectTransactionTypes,
 } from '@/constants'
 import { computed, reactive, ref } from 'vue'
-import BaseDatePicker from './ui/BaseDatePicker.vue'
+import { useUserStore } from '@/stores'
 
+const userStore = useUserStore()
 const formInputs = reactive<NewTransactionValues>({
   description: '',
   amount: 0,
@@ -48,7 +50,8 @@ const formInputs = reactive<NewTransactionValues>({
   category: 'FOOD',
   date: new Date().toISOString().split('T')[0],
 })
-const showAddTransactionModal = ref(false)
+const isOpen = ref<boolean>(false)
+const modalRef = ref<InstanceType<typeof BaseModal> | null>(null)
 
 const FilteredSelectTransactionCategories = computed(() => {
   return formInputs.type === 'EXPENSE'
@@ -57,16 +60,13 @@ const FilteredSelectTransactionCategories = computed(() => {
 })
 
 const handleAddDisable = computed(() => {
-  return (
-    !formInputs.description ||
-    !formInputs.amount ||
-    !formInputs.date ||
-    !formInputs.category ||
-    !formInputs.type
-  )
+  return !formInputs.description || !formInputs.amount || !formInputs.date || !formInputs.category || !formInputs.type
 })
-const handleAddTransaction = () => {
-  console.log(formInputs)
-  showAddTransactionModal.value = false
+
+
+function handleAddTransaction() {
+  userStore.addTransaction(formInputs)
+  modalRef.value?.closeModal()
 }
+
 </script>

@@ -12,7 +12,7 @@
 <script setup lang="ts">
 import { computed, defineProps } from 'vue'
 
-interface ButtonProps {
+export type ButtonProps = {
   type?: 'button' | 'submit' | 'reset'
   variant?: 'primary' | 'secondary' | 'danger'
   size?: 'sm' | 'md' | 'lg'
@@ -20,6 +20,8 @@ interface ButtonProps {
   disabled?: boolean
   loading?: boolean
 }
+
+
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'button',
   size: 'md',

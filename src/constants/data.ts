@@ -1,7 +1,6 @@
 export const TransactionTableHeaders = [
   { label: 'Date', key: 'date' },
   { label: 'Amount', key: 'amount' },
-  { label: 'Currency', key: 'currency' },
   { label: 'Type', key: 'type' },
   { label: 'Category', key: 'category' },
   { label: 'Description', key: 'description' },
@@ -11,6 +10,7 @@ export const SelectTransactionTypes = [
   { label: 'Expense', value: 'EXPENSE' },
   { label: 'Income', value: 'INCOME' },
 ]
+
 export const SelectTransactionCategories = {
   EXPENSE: [
     { label: 'Rent', value: 'RENT' },
@@ -30,3 +30,13 @@ export const SelectTransactionCategories = {
     { label: 'Other', value: 'OTHER' },
   ],
 }
+
+export const DateFilterOptions = [
+  { label: 'Last 7 days', value: 'LAST_7_DAYS' },
+  { label: 'Last 30 days', value: 'LAST_30_DAYS' },
+  { label: 'Last 60 days', value: 'LAST_60_DAYS' },
+  { label: 'Last 90 days', value: 'LAST_90_DAYS' },
+  { label: 'Last 365 days', value: 'LAST_365_DAYS' },
+  {label: 'All time', value: 'ALL_TIME'},
+]
+

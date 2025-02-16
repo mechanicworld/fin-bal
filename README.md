@@ -1,6 +1,46 @@
-# fin-bal
+# **Fin-Bal**  
 
-This template should help get you started developing with Vue 3 in Vite.
+Welcome to the **Finance & Balance** project! 🚀  
+
+Before we start, I have to mention that this project is **under development** and follows a **continuous improvement** approach.  
+
+## **About the Project**  
+This project aims to help you **track your income and expenses** categorically while providing **fundamental but catchy summary results**.  
+
+- You can **add transactions** and view them as a table under the **Transactions** tab.  
+- See a **summary view** of your finances and filter transactions by category and date range.  
+
+## **Filters for Now**  
+
+### **Transaction Categories**  
+- `Rent`  
+- `Utilities`  
+- `Food`  
+- `Transport`  
+- `Health`  
+- `Shopping`  
+- `Entertainment`  
+- `Savings`  
+- `Debt`  
+- `Salary`  
+- `Side Hustle`  
+- `Other`  
+
+### **Date Marks**  
+- `Last 7 Days`  
+- `Last 30 Days`  
+- `Last 60 Days`  
+- `Last 90 Days`  
+- `Last 365 Days`  
+- `All Time`  
+
+## **Local Storage**  
+- The **auth mechanism** and database-like features **use `localStorage`** to **mock** data.  
+- Transactions are also stored in `localStorage`.  
+
+---
+
+
 
 ## Recommended IDE Setup
 

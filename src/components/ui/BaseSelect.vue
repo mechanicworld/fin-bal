@@ -10,7 +10,7 @@
     </div>
     <ul
       v-if="isOpen"
-      class="absolute w-full bg-white border border-gray-300 rounded-lg shadow-md z-10"
+      class="absolute top-full w-full bg-white border border-gray-300 rounded-lg shadow-md z-10 max-h-40 overflow-auto"
     >
       <li
         v-for="option in options"
@@ -36,7 +36,7 @@ interface BaseSelectProps {
   options: Option[]
   placeholder?: string
   label: string
-  fluid: boolean
+  fluid?: boolean
 }
 const props = withDefaults(defineProps<BaseSelectProps>(), {
   placeholder: 'Select an option',

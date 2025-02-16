@@ -11,6 +11,7 @@
           class="flex-1"
           :class="inputClasses"
           :placeholder="props.placeholder"
+          min="0"
         />
       
       <div
@@ -38,7 +39,7 @@ const props = withDefaults(defineProps<BaseInputProps>(), {
   type: 'text',
 })
 const emit = defineEmits<{
-  'update:modelValue': [string]
+  'update:modelValue': [string|number]
 }>()
 const showPassword = ref(false)
 

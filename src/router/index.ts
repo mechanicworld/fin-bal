@@ -52,14 +52,21 @@ const router = createRouter({
       },
     },
     {
-      path: '/auth/:authType',
-      name: 'Auth',
-      component: () => import('@/views/AuthView.vue'),
-      props: true,
-    },
-    {
       path: '/auth',
+      name: 'Auth',
       redirect: '/auth/login',
+      children: [
+        {
+          path: 'login',
+          name: 'Login',
+          component: () => import('@/views/LoginView.vue'),
+        },
+        {
+          path: 'register',
+          name: 'Register',
+          component: () => import('@/views/RegisterView.vue'),
+        },
+      ],
     },
     {
       path: '/:pathMatch(.*)*',
@@ -75,7 +82,7 @@ router.beforeEach(async (to, from, next) => {
     next({ name: 'Dashboard' })
   }
   if (!authStore.isAuthenticated && to.meta.requiresAuth) {
-    next({ name: 'Auth', params: { authType: 'login' } })
+    next({ name: 'Login'})
   } else {
     next()
   }

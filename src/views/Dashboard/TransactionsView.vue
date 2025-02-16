@@ -16,6 +16,7 @@
     </div>
     <TransactionTable />
     <AddTransactionModal v-model="showAddTransactionModal" />
+
   </div>
 </template>
 <script setup lang="ts">
@@ -26,6 +27,7 @@ import { seedTransactionData } from '@/utils/creators'
 import { ref } from 'vue'
 import AddTransactionModal from '@/components/AddTransactionModal.vue'
 import PlusIcon from '@/assets/icons/plus-icon.svg'
+
 const userStore = useUserStore()
 const showAddTransactionModal = ref(false)
 

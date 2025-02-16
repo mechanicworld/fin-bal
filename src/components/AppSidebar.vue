@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="h-[80vh] sticky top-8 text-white rounded shadow-xl flex flex-col"
+    class="h-[80vh] sticky top-8 text-white rounded shadow-xl flex flex-col shrink-0"
     :class="[darkModeClasses.background, miniSidebar ? 'w-16' : 'w-64']"
   >
     <div class="flex p-4" :class="[miniSidebar ? 'justify-center' : 'justify-end']">
@@ -42,18 +42,22 @@
 </template>
 <script setup lang="ts">
 import router, { dashboardRoutes } from '@/router'
-import { computed, ref } from 'vue'
+import { computed, ref, watchEffect } from 'vue'
 import { useSettingsStore, useAuthStore } from '@/stores'
 import BaseButton from './ui/BaseButton.vue'
 import SidebarToggleIcon from '@/assets/icons/sidebar-toggle.svg'
 import LogoutIcon from '@/assets/icons/logout.svg'
-
+import { useDeviceType } from '@/composables'
 const settingsStore = useSettingsStore()
 const authStore = useAuthStore()
+const useDevice = useDeviceType()
 const miniSidebar = ref(false)
 const toggleSidebar = () => {
   miniSidebar.value = !miniSidebar.value
 }
+watchEffect(() => {
+  miniSidebar.value = !useDevice.isDesktop.value
+})
 const darkModeClasses = computed(() => {
   return {
     background: settingsStore.isDarkMode ? 'bg-teal-100/15' : 'bg-teal-800',

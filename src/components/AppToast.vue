@@ -1,5 +1,5 @@
 <template>
-  <div v-if='toastStore.toasts.length' ref="toastContainer"  class="absolute top-0 right-0 p-4 flex flex-col items-center gap-4 h-screen overflow-hidden">
+  <div v-if='toastStore.toasts.length' ref="toastContainer"  class="absolute top-0 right-0 p-4 flex flex-col items-center gap-4 h-screen overflow-hidden z-50">
     <div v-for="toast in toastStore.toasts" :key="toast.id" class=" min-h-24 w-64 shadow-xl rounded-lg p-4 border-2 flex bg-white "
     :class="toastClass.container[toast.type]">
     <div class="flex flex-col flex-1 gap-2">

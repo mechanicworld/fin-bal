@@ -22,3 +22,10 @@ export type AuthResponse = BaseResponse<{
 }>
 export type TransactionResponse = BaseResponse<Transaction>
 export type TransactionsResponse = BaseResponse<Transaction[]>
+
+export type DateFilterOptionType =
+  | 'LAST_7_DAYS'
+  | 'LAST_30_DAYS'
+  | 'LAST_60_DAYS'
+  | 'LAST_90_DAYS'
+  | 'LAST_365_DAYS'
