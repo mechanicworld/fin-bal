@@ -23,7 +23,6 @@ const emit = defineEmits<{
 }>()
 const handleDateSelect = (event: Event) => {
   const target = event.target as HTMLInputElement
-  console.log(target?.value)
   emit('update:modelValue', target?.value)
 }
 </script>

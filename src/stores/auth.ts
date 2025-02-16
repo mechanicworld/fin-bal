@@ -40,10 +40,8 @@ export const useAuthStore = defineStore('auth', {
       const toastStore = useToastStore()
       try {
         const response = await AuthService.login(email, password)
-        console.log('response', response)
         if (response.success) {
           this.user = response.data || { name: '', surname: '', email: '' }
-          console.log('this.user', this.user)
           this.isAuthenticated = true
           toastStore.addMessage({ type: 'success', message: response.message || '' })
           localStorage.setItem('currentUser', JSON.stringify(response.data))
